@@ -23,7 +23,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="nav-left">
         <h2 className="nav-brand" onClick={() => navigate("/home")}>
-          🎬 MovieExplorer
+          🎬 CineMatch
         </h2>
       </div>
 
