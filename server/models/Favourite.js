@@ -13,6 +13,6 @@ const FavouriteSchema = new mongoose.Schema({
   poster_path: String,
 }, { collection: 'FavouriteMovie' }); // <-- specify collection name here
 
-FavouriteSchema.index({ userId: 1, movieId: 1 }, { unique: true });
+FavouriteSchema.index({ userId: 1, movieId: 1 }, { unique: true }); //A user cannot favorite the same movie multiple times
 
-module.exports = mongoose.model("FavouriteMovie", FavouriteSchema);
+module.exports = mongoose.model("FavouriteMovie", FavouriteSchema); //This model provides the interface for all CRUD operations

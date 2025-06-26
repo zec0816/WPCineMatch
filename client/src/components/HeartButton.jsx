@@ -9,7 +9,7 @@ const HeartButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative; // Add this
-  top: -14px; // Add this
+  top: 14px; // Add this
 
   &:hover {
     color: red;

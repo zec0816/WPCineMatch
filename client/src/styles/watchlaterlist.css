@@ -1,0 +1,161 @@
+/* Movie Cards */
+.movie-container {
+  position: relative;
+  margin: 8px;
+  width: 150px;
+}
+
+.movie-card {
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background-color: #141414;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  height: 225px;
+  width: 150px;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.movie-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: linear-gradient(
+    to top,
+    rgba(20, 20, 20, 0.9),
+    rgba(20, 20, 20, 0)
+  );
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Genre Groups */
+.genre-group {
+  margin-bottom: 40px;
+}
+
+.genre-title {
+  color: #ffffff;
+}
+
+/* Top Buttons */
+.top-buttons-wrapper {
+  position: absolute;
+  bottom: -30px;
+  left: -2.5%;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+  z-index: 2;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background-color: #141414;
+  border-radius: 10px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: white;
+  position: relative;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.poster-section {
+  margin-bottom: 20px;
+}
+
+.poster-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.modal-poster {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.modal-info {
+  padding: 0 20px;
+}
+
+.modal-info h2 {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.movie-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.trailer {
+  margin-top: 20px;
+}
+
+/* Page Layout */
+.watchlist-title {
+  margin-top: 100px;
+}
+
+.search-container {
+  background-color: #000000;
+}
+
+.empty-message {
+  font-size: 1.2rem;
+}
+
+.movies-container {
+  padding-bottom: 50px;
+}
