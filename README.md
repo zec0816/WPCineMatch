@@ -48,6 +48,19 @@ GEMINI_API_KEY=<Your GEMINI API key>
 VITE_TMDB_API_KEY=<Your TMDB API key>
 ```
 
+### 4. Run the backend and frontend
+
+Navigate to the server directory and run the backend:
+```sh
+npm start
+```
+
+Then, navigate to the client directory and run the frontend:
+```sh
+npm run dev
+```
+
+
 ---
 ## 📌 Tech Stack: MERN Stack
 
