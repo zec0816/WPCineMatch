@@ -9,7 +9,7 @@ const WatchLaterButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative; // Add this
-  top: -12px; // Add this
+  top: 20px; // Add this
 
   &:hover {
     color: gold;

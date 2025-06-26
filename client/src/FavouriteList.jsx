@@ -1,82 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 import { fetchMovieDetails, fetchMovieTrailer, IMAGE_BASE_URL } from "./api.js";
 import { API_BASE_URL } from "./config";
 import WatchLaterButton from "./components/WatchLaterButton";
 import HeartButton from "./components/HeartButton";
-
-// Styled Components
-const MovieContainer = styled.div`
-  position: relative;
-  margin: 8px;
-  width: 150px; // Fixed width
-`;
-
-const MovieCard = styled.div`
-  cursor: pointer;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  background-color: #141414;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-  height: 225px; // Fixed height to maintain aspect ratio
-  width: 150px; // Fixed width
-
-  &:hover {
-    transform: scale(1.08);
-  }
-`;
-
-const MoviePoster = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-`;
-
-const MovieTitleOverlay = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 10px;
-  background: linear-gradient(
-    to top,
-    rgba(20, 20, 20, 0.9),
-    rgba(20, 20, 20, 0)
-  );
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-`;
-
-const GenreGroup = styled.div`
-  margin-bottom: 40px;
-`;
-
-const TopButtonsWrapper = styled.div`
-  position: absolute;
-  bottom: -30;
-  left: -2.5%;
-  display: flex;
-  align-items: flex-end;
-  padding: 8px;
-  z-index: 2;
-`;
-
-const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 3;
-`;
+import "./styles/favouritelist.css"; 
 
 const FavouriteList = () => {
   const [favouriteMovies, setFavouriteMovies] = useState([]);
@@ -421,7 +350,6 @@ const FavouriteList = () => {
       setIsLoading(false);
     }
   };
-
   return (
     <>
       <Navbar className="navbar navbar-dark bg-black border-bottom border-secondary px-3">
@@ -439,17 +367,14 @@ const FavouriteList = () => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h1
-              className="text-center text-white mb-4 fw-bold"
-              style={{ marginTop: "100px" }}
-            >
+            <h1 className="text-center text-white mb-4 fw-bold favourites-title">
               ❤️ My Favourites
             </h1>
           </div>
         </div>
       </div>
 
-      <div className="container mb-4 bg-black rounded p-4">
+      <div className="container mb-4 bg-black rounded p-4 search-container">
         <div className="row justify-content-center">
           <div className="col-md-7 d-flex justify-content-center mb-2">
             <div className="input-group w-100">
@@ -486,14 +411,16 @@ const FavouriteList = () => {
         </div>
       </div>
 
-      <div className="container mt-5">
+      <div className="container mt-5 movies-container">
         {isLoading && <p className="text-white text-center">Loading...</p>}
         {favouriteMovies.length === 0 ? (
-          <p className="text-white text-center">Your favourite list is empty</p>
+          <p className="text-white text-center empty-message">
+            Your favourite list is empty
+          </p>
         ) : (
           Object.entries(groupedMovies).map(([groupName, movies]) => (
-            <GenreGroup key={groupName}>
-              <h3 className="text-white mb-3">
+            <div className="genre-group" key={groupName}>
+              <h3 className="text-white mb-3 genre-title">
                 {groupName === "All Movies" ? (
                   <span style={{ color: "#ffffff" }}>{groupName}</span>
                 ) : (
@@ -502,9 +429,13 @@ const FavouriteList = () => {
               </h3>
               <div className="movie-row d-flex flex-wrap">
                 {movies.map((movie) => (
-                  <MovieContainer key={movie.id} className="mb-4 mx-2">
-                    <MovieCard onClick={() => showMovieDetails(movie.id)}>
-                      <MoviePoster
+                  <div className="movie-container mb-4 mx-2" key={movie.id}>
+                    <div
+                      className="movie-card"
+                      onClick={() => showMovieDetails(movie.id)}
+                    >
+                      <img
+                        className="movie-poster"
                         src={
                           movie.poster_path
                             ? `${IMAGE_BASE_URL}${movie.poster_path}`
@@ -512,12 +443,12 @@ const FavouriteList = () => {
                         }
                         alt={movie.title}
                       />
-                      <MovieTitleOverlay>{movie.title}</MovieTitleOverlay>
-                    </MovieCard>
-                  </MovieContainer>
+                      <div className="movie-title-overlay">{movie.title}</div>
+                    </div>
+                  </div>
                 ))}
               </div>
-            </GenreGroup>
+            </div>
           ))
         )}
       </div>
@@ -536,13 +467,13 @@ const FavouriteList = () => {
               <div className="poster-section">
                 <div className="poster-wrapper">
                   <img
+                    className="modal-poster"
                     src={
                       selectedMovie.poster_path
                         ? `${IMAGE_BASE_URL}${selectedMovie.poster_path}`
                         : "https://via.placeholder.com/300x400?text=No+Image"
                     }
                     alt={selectedMovie.title}
-                    className="modal-poster"
                   />
                   <div className="top-buttons-wrapper">
                     <HeartButton
