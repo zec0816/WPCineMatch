@@ -1,6 +1,6 @@
-# WPCineMatch 🎬
+# CineMatch 🎬
 
-**WPCineMatch** is a web application that helps users discover, manage, and review movies in a personalized way. The platform provides user authentication, profile management, trending entertainment insights, advanced search and filtering, personal watchlists, and a robust rating and review system.
+**CineMatch** is a web application that helps users discover, manage, and review movies in a personalized way. The platform provides user authentication, profile management, trending entertainment insights, advanced search and filtering, personal watchlists, and a robust rating and review system.
 
 ---
 
