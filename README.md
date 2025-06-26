@@ -6,22 +6,22 @@
 
 ## 🚀 Features
 
-✅ **User Authentication Module**  
+**1. User Authentication Module**  
 Handles user registration, login, logout, and session management with a secure authentication flow.
 
-✅ **Profile Management Module**  
+**2. Profile Management Module**  
 Allows users to view, update, and delete their profile information, including password changes.
 
-✅ **Entertainment Ranking Module**  
+**3. Entertainment Ranking Module**  
 Displays trending movies with filtering options based on genre, providing users a curated experience.
 
-✅ **Search and Filtering Module**  
+**4. Search and Filtering Module**  
 Enables users to search for movies by keywords and sort results based on popularity, rating, or year.
 
-✅ **Watchlist Module**  
+**5. Watchlist Module**  
 Allows users to add movies to a personal watchlist and manage saved items for future reference.
 
-✅ **Rating and Review Module**  
+**6. Rating and Review Module**  
 Enables users to view and give movie ratings, as well as view and write reviews.
 
 ---
