@@ -15,4 +15,4 @@ const WatchLaterSchema = new mongoose.Schema({
 
 WatchLaterSchema.index({ userId: 1, movieId: 1 }, { unique: true }); // prevent duplicate
 
-module.exports = mongoose.model("WatchLaterMovie", WatchLaterSchema);
+module.exports = mongoose.model("WatchLaterMovie", WatchLaterSchema); //model

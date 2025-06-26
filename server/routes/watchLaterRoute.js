@@ -7,11 +7,13 @@ router.post("/add", async (req, res) => {
   const { userId, movieId, title, poster_path } = req.body;
 
   try {
+    // Check if movie already exists in user's watch later
     const existing = await WatchLater.findOne({ userId, movieId });
     if (existing) {
       return res.status(200).json({ message: "Already in watch later" });
     }
 
+    // Create new watch later entry
     const newWatchLater = new WatchLater({
       userId,
       movieId,
@@ -40,6 +42,7 @@ router.delete("/:movieId", async (req, res) => {
   const { userId } = req.query;
   const movieId = parseInt(req.params.movieId, 10);
 
+    // Input validation
   if (!userId || isNaN(movieId)) {
     return res.status(400).json({ message: "Missing or invalid userId/movieId" });
   }
